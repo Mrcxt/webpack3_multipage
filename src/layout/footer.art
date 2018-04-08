@@ -1,3 +1,111 @@
 <section class="footer">
-    <p>footer</p>
+    <div class="container">
+        <div class="row" style="margin-bottom: 50px;">
+            <div class="footer-list col-md-3 col-sm-3 col-xs-12">
+                <h3>7大数据</h3>
+                <ul>
+                    <li>
+                        <a href="./seven.html">全国公路铁路路谱大数据</a>
+                    </li>
+                    <li>
+                        <a href="">物流监测实时动态大数据</a>
+                    </li>
+                    <li>
+                        <a href="">货物损伤特性大数据</a>
+                    </li>
+                    <li>
+                        <a href="">物流车辆大数据</a>
+                    </li>
+                    <li>
+                        <a href="">物流机械装备大数据</a>
+                    </li>
+                    <li>
+                        <a href="">物流供应商服务水平大数据</a>
+                    </li>
+                    <li>
+                        <a href="">包装材料大数据</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-list col-md-2 col-sm-2 col-xs-12">
+                <h3>产品硬件</h3>
+                <ul>
+                    <li>
+                        <a href="./product.html">WL1000 Series</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-list col-md-2 col-sm-2 col-xs-12">
+                <h3>解决方案</h3>
+                <ul>
+                    <li>
+                        <a href="./project-monitoring.html">在途货物实时监测</a>
+                    </li>
+                    <li>
+                        <a href="./project-nav.html">货物运输安全导航</a>
+                    </li>
+                    <li>
+                        <a href="./project-drop.html">货物运输方案优化</a>
+                    </li>
+                    <li>
+                        <a href="./project-design.html">运输包装设计优化</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-list col-md-2 col-sm-2 col-xs-12">
+                <h3>行业案例</h3>
+                <ul>
+                    <li>
+                        <a href="./case-01.html">汽车</a>
+                    </li>
+                    <li>
+                        <a href="./case-02.html">快消品</a>
+                    </li>
+                    <li>
+                        <a href="./case-03.html">电力设备</a>
+                    </li>
+                    <li>
+                        <a href="./case-04.html">家电</a>
+                    </li>
+                    <li>
+                        <a href="./case-05.html">快递</a>
+                    </li>
+                    <li>
+                        <a href="./case-06.html">航空</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-list  col-md-2 col-sm-2 col-xs-12">
+                <h3>关于我们</h3>
+                <ul>
+                    <li>
+                        <a href="./about.html#tab_1">公司简介</a>
+                    </li>
+                    <li>
+                        <a href="./about.html#tab_2">资质荣誉</a>
+                    </li>
+                    <li>
+                        <a href="./about.html#tab_3">合作伙伴</a>
+                    </li>
+                </ul>
+                <h3>在线留言</h3>
+                <ul>
+                    <li>
+                        <a href="./message.html">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer-list col-md-3 col-sm-3 col-xs-12">
+                <p>版权所有：</p>
+                <p>中国包装科研测试中心</p>
+                <p>中包物联网科技（天津）有限公司</p>
+                <p>China National Packaging IOT Tech.Co.Ltd</p>
+            </div>
+            <div class="footer-list  col-md-2 col-sm-3 col-xs-12 col-md-offset-6 col-sm-offset-6">
+            </div>
+
+        </div>
+    </div>
 </section>
