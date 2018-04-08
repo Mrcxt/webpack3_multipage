@@ -1,20 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
-const uglify = require('uglifyjs-webpack-plugin');
 const htmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack');
-const glob = require('glob-all');
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+// const PurifyCSSPlugin = require('purifycss-webpack');
+// const glob = require('glob-all');
 
 const pages = require('./pages.json');
 
 let webpackConfig = {
     entry: {
-        vendor: ['bootstrap', 'jquery', ],
-        commons: './src/js/commons.js',
-        // entry: './src/js/entry.js',
-        // one: './src/js/one.js',
+        // vendor: ['bootstrap', 'jquery','element-ui','vue', ],
+        commons: ['./src/js/commons.js'],
+        // tree: './src/js/tree.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -37,7 +34,7 @@ let webpackConfig = {
             use: [{
                 loader: 'url-loader',
                 options: {
-                    limit: 8192,
+                    limit: 10000,
                     name: 'images/[name].[ext]?[hash]',
 
                 }
@@ -47,7 +44,7 @@ let webpackConfig = {
             use: [{
                 loader: 'file-loader',
                 options: {
-                    limit: 8192,
+                    limit: 10000,
                     name: 'fonts/[name].[ext]'
                 }
             }]
@@ -67,41 +64,22 @@ let webpackConfig = {
             use: ['art-template-loader']
         }]
     },
-    devtool: 'eval-source-map',
     plugins: [
-        // new uglify(),
-        new ExtractTextPlugin('css/[name].[contenthash].css'),
-        new PurifyCSSPlugin({
-            paths: glob.sync([
-                path.join(__dirname, './src/*.art'),
-                path.join(__dirname, './src/layout/*.art')
-            ]),
-        }),
-        new CleanWebpackPlugin(['dist']),
+        // 全局配置jquery
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
             'window.$': "jquery",
             'window.jQuery': "jquery",
-
         }),
+        new ExtractTextPlugin('css/[name].[contenthash].css'),
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['commons', 'vendor', ],
+            name: ['commons', ],
             filename: 'assets/js/[name].[chunkhash].js',
             minChunks: 2,
         })
     ],
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
-        port: 9527,
-        host: 'localhost',
-        compress: true
-    },
-    watchOptions: {
-        poll: 1000,
-        aggregateTimeout: 500,
-        ignored: /node_modules/
-    }
+
 }
 
 // 根据pages.json内容决定生成几个文件
@@ -118,10 +96,9 @@ pages.forEach(function(page) {
             // hash: true,
             template: `./src/${name}.art`,
             filename: `${name}.html`,
-            chunks: ['vendor', 'commons', js]
+            chunks: ['commons', 'tree', js]
 
         })
     );
-    // console.log(webpackConfig.entry)
 });
 module.exports = webpackConfig;
