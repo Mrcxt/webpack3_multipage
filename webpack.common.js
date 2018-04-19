@@ -2,8 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const htmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const PurifyCSSPlugin = require('purifycss-webpack');
-// const glob = require('glob-all');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+    // const PurifyCSSPlugin = require('purifycss-webpack');
+    // const glob = require('glob-all');
 
 const pages = require('./pages.json');
 
@@ -60,8 +61,10 @@ let webpackConfig = {
                 loader: 'babel-loader',
             }
         }, {
-            test: /.art$/,
-            use: ['art-template-loader']
+            test: /\.ejs$/,
+            use: {
+                loader: 'ejs-render-loader'
+            }
         }]
     },
     plugins: [
@@ -77,7 +80,11 @@ let webpackConfig = {
             name: ['commons', ],
             filename: 'assets/js/[name].[chunkhash].js',
             minChunks: 2,
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: './static',
+            to: 'static'
+        }])
     ],
     // 不希望被打包的库（可以通过CDN或者后期手动script的方式引入）
     // 可以减小打包出来的体积
@@ -100,7 +107,7 @@ pages.forEach(function(page) {
         new htmlPlugin({
             // minify: true,
             // hash: true,
-            template: `./src/${name}.art`,
+            template: `./src/${name}.ejs`,
             filename: `${name}.html`,
             chunks: ['commons', 'tree', js]
 
