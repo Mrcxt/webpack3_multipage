@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
     // const PurifyCSSPlugin = require('purifycss-webpack');
     // const glob = require('glob-all');
 
-const pages = require('./pages.json');
+const pages = require('../pages/pages.json');
 
 let webpackConfig = {
     entry: {
@@ -15,7 +15,7 @@ let webpackConfig = {
         // tree: './src/js/tree.js',
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: 'js/[name].[chunkhash].js',
     },
     module: {
@@ -89,7 +89,7 @@ let webpackConfig = {
     // 不希望被打包的库（可以通过CDN或者后期手动script的方式引入）
     // 可以减小打包出来的体积
     externals: {
-        // jquery: '$',
+        jquery: '$',
         vue: 'Vue',
         echarts: 'echarts'
     },

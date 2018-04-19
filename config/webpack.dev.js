@@ -3,8 +3,6 @@ const common = require('./webpack.common');
 const webpack = require('webpack');
 const path = require('path');
 
-const pages = require('./pages.json');
-
 module.exports = merge(common, {
 
 })

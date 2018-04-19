@@ -1,6 +1,5 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
-
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const uglify = require('uglifyjs-webpack-plugin');
 
